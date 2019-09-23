@@ -1,20 +1,20 @@
-import React from 'react'
-import {Navbar} from 'react-bootstrap';
+import React, { useState, useContext } from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { MovieContext } from './MovieContext';
 
-const Nav = () => {
+const Navigation = () => {
+  const [movies, setMovies] = useContext(MovieContext);
+
   return (
-<>
-<Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/">
-      Alvin
-    </Navbar.Brand>
-  </Navbar>
-</>
-  )
-}
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/">Alvin</Navbar.Brand>
+        <Nav className="ml-auto">
+          <Nav.Link>Total Movies: {movies.length}</Nav.Link>
+        </Nav>
+      </Navbar>
+    </>
+  );
+};
 
-Nav.propTypes = {
-
-}
-
-export default Nav
+export default Navigation;
